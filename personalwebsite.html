@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Marwo Suleiman: computer science student and software engineer in Toronto.">
+<title>Marwo Suleiman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=Caveat:wght@500;700&display=swap">
+<style>
+/* Layout: soft pink wave header over a bento grid; experience drawn as a subway line */
+:root{
+  --bg:#fdd3e7; --wave:#fbbfdb; --card:#fff4f9; --ink:#5a2342; --muted:#94557a;
+  --pink:#f06aa8; --matcha:#8fb36a; --matcha-ink:#4d6b2e; --line:#f5c518; --rule:#f7c3dc;
+  --shadow:0 1px 0 #f6b5d4, 0 14px 30px -18px rgba(150,30,90,.35);
+  color-scheme:light;
+  --display:"Bricolage Grotesque", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, sans-serif;
+  --hand:"Caveat", "Comic Sans MS", cursive;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0}
+img{max-width:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding-inline:20px;padding-block:0 48px;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px dashed var(--pink);outline-offset:3px}
+.wave{position:absolute;inset:0 0 auto 0;height:340px;z-index:0;pointer-events:none}
+.wave path{fill:var(--wave)}
+.wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto}
+
+nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;gap:16px;flex-wrap:wrap}
+.pill{display:flex;gap:4px;background:var(--card);border-radius:999px;padding:6px;box-shadow:var(--shadow);flex-wrap:wrap}
+.pill a{text-decoration:none;font-weight:600;font-size:14px;padding:8px 16px;border-radius:999px}
+.pill a:hover{background:var(--wave)}
+
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:18px}
+.card{background:var(--card);border-radius:22px;padding:26px;box-shadow:var(--shadow);position:relative;min-width:0}
+.label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hand{font-family:var(--hand);font-size:24px;line-height:1.1;color:var(--pink)}
+
+/* hero */
+.hero{grid-column:span 4;display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:36px}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(46px,8vw,92px);line-height:.92;letter-spacing:-.03em;margin:0;text-wrap:balance}
+.hero h1 .u{background:linear-gradient(transparent 62%,var(--pink) 62%,var(--pink) 88%,transparent 88%)}
+.role{font-family:var(--display);font-size:clamp(20px,3vw,28px);margin:14px 0 0;min-height:1.3em}
+.role .caret{display:inline-block;width:2px;height:1em;background:var(--ink);vertical-align:-.12em;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.bio{max-width:58ch;margin:0;color:var(--muted)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{font:600 15px var(--body);background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:13px 22px;text-decoration:none;cursor:pointer;box-shadow:0 8px 18px -10px var(--ink);transition:transform .15s}
+.btn:hover{transform:translateY(-2px) rotate(-1deg)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+
+/* polaroid */
+.photo{grid-column:span 2;display:grid;place-items:center;background:transparent;box-shadow:none;padding:12px}
+.polaroid{background:#fff;padding:14px 14px 0;border-radius:6px;transform:rotate(3deg);box-shadow:0 18px 40px -20px rgba(80,30,45,.55);width:100%;max-width:290px;transition:transform .3s}
+.polaroid:hover{transform:rotate(-1deg) scale(1.02)}
+.polaroid .img{aspect-ratio:4/5;max-width:100%;border-radius:3px;background:radial-gradient(circle at 50% 40%,#fbe3ea,#f3c4cf);display:grid;place-items:center;overflow:hidden}
+.polaroid img{width:100%;height:100%;object-fit:cover}
+.polaroid p{font-family:var(--hand);font-size:24px;color:#4a2c31;text-align:center;margin:8px 0 12px}
+.tape{position:absolute;top:2px;left:50%;width:96px;height:28px;background:color-mix(in srgb,var(--matcha) 55%,transparent);transform:translateX(-50%) rotate(-5deg);border-radius:2px;z-index:2}
+
+/* subway */
+.subway{grid-column:span 3}
+.subway h2,.projects h2,.skills h2,.contact h2,.fix h2{font-family:var(--display);font-weight:700;font-size:28px;margin:4px 0 18px;letter-spacing:-.01em}
+.stops{list-style:none;margin:0;padding:0;position:relative}
+.stops::before{content:"";position:absolute;left:11px;top:10px;bottom:14px;width:8px;border-radius:8px;background:var(--line)}
+.stops li{position:relative;padding:0 0 22px 46px}
+.stops li::before{content:"";position:absolute;left:4px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--card);border:4px solid var(--ink)}
+.stops li.next::before{border-style:dashed;border-color:var(--pink)}
+.stops li.next{padding-bottom:0}
+.stops .when{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.stops h3{font-family:var(--display);font-size:19px;margin:0;line-height:1.25}
+.stops h3 span{color:var(--pink)}
+.stops p{margin:4px 0 0;font-size:15px;color:var(--muted)}
+.chiplist{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:12.5px;font-weight:500;padding:3px 10px;border-radius:999px;background:var(--wave)}
+
+/* projects */
+.projects{grid-column:span 3;display:flex;flex-direction:column}
+.plist{display:grid;gap:14px}
+.proj{display:grid;grid-template-columns:62px 1fr;gap:16px;align-items:center;padding:14px;border-radius:16px;border:1.5px dashed var(--rule);transition:border-color .2s,transform .2s}
+.proj:hover{border-color:var(--pink);transform:rotate(-.6deg)}
+.proj svg{width:62px;height:62px}
+.proj h3{font-family:var(--display);font-size:18px;margin:0}
+.proj p{margin:2px 0 0;font-size:14.5px;color:var(--muted)}
+
+/* skills */
+.skills{grid-column:span 4;overflow:hidden}
+.marquee{display:flex;flex-direction:column;gap:10px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.row{display:flex;gap:10px;width:max-content;animation:slide 38s linear infinite}
+.row.rev{animation-direction:reverse}
+.row span{font-size:14.5px;font-weight:500;padding:7px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--rule);white-space:nowrap}
+.row span.hot{background:var(--matcha);border-color:var(--matcha);color:#1f2a14}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* fixations */
+.fix{grid-column:span 2;background:var(--wave)}
+.fix ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.fix li{display:flex;gap:10px;align-items:baseline}
+.fix li b{font-family:var(--hand);font-size:22px;color:var(--matcha-ink);min-width:28px}
+
+
+/* travel */
+.travel{grid-column:span 6;display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:36px;align-items:center;padding:34px}
+.travel .polaroid{transform:rotate(-3deg);max-width:260px}
+.travel .polaroid:hover{transform:rotate(1deg) scale(1.02)}
+.travel h2{font-family:var(--display);font-weight:700;font-size:28px;margin:4px 0 6px}
+.travel .lead{margin:0 0 22px;color:var(--muted);max-width:52ch}
+.stamps{display:flex;flex-wrap:wrap;gap:16px 18px;align-items:center}
+.stamp{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:13px;line-height:1.15;text-align:center;color:var(--c);border:2.5px solid var(--c);padding:10px 14px;border-radius:10px;transform:rotate(var(--r));box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4.5px var(--c);opacity:.9;transition:transform .2s}
+.stamp small{display:block;font-family:var(--hand);font-weight:700;text-transform:none;letter-spacing:0;font-size:17px}
+.stamp.round{border-radius:50%;width:96px;height:96px;display:grid;place-content:center;padding:6px}
+.stamp:hover{transform:rotate(0) scale(1.08)}
+@media (max-width:700px){.travel{grid-template-columns:1fr;padding:24px}.travel .polaroid{margin:0 auto}}
+
+/* contact */
+.contact{grid-column:span 6;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:30px 36px}
+.contact h2{margin:0;font-size:clamp(26px,4vw,40px)}
+.contact .addr{font-family:var(--display);font-size:clamp(16px,2.4vw,20px);word-break:break-all}
+.contact .row2{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.toast{font-family:var(--hand);font-size:22px;color:var(--matcha-ink)}
+
+@media (max-width:900px){
+  .hero{grid-column:span 6}.photo{grid-column:span 6}
+  .subway,.projects{grid-column:span 6}
+  .skills,.fix{grid-column:span 6}
+}
+@media (max-width:520px){
+  .hero{padding:26px}.card{padding:22px}
+  .contact{padding:24px}
+}
+@media (prefers-reduced-motion:reduce){.row,.role .caret{animation:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<svg class="wave" viewBox="0 0 1440 340" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V150C1270 70 1150 230 920 210C690 190 620 300 400 280C220 264 120 200 0 230Z"/></svg>
+
+<div class="wrap">
+  <nav>
+    <div class="pill">
+      <a href="#about">About</a><a href="#route">Experience</a><a href="#projects">Projects</a><a href="#travel">Travel</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main class="bento">
+    <section class="card hero" id="about">
+      <div>
+        <div class="label">hi, i'm</div>
+        <h1>marwo <span class="u">suleiman</span></h1>
+        <p class="role"><span id="typed">software engineer</span><span class="caret" aria-hidden="true"></span></p>
+      </div>
+      <p class="bio">i'm a computer science student at TMU who builds full-stack apps, backend services and AI tools. i've worked on agentic workflows and RAG pipelines, and i like turning messy data into something people can actually use. before CS, i studied life sciences, so i still think a little like a scientist.</p>
+      <div class="cta">
+        <a class="btn" href="#projects">see what i've built ↓</a>
+        <a class="btn ghost" href="https://linkedin.com/in/marwosuleiman" target="_blank" rel="noopener">linkedin ↗</a>
+      </div>
+    </section>
+
+    <div class="card photo">
+      <div style="position:relative;width:100%;max-width:290px">
+        <div class="tape"></div>
+        <figure class="polaroid" style="margin:0;padding-bottom:44px">
+          <div class="img" id="photoSlot">
+            <img src="me.jpg" alt="Marwo Suleiman">
+          </div>
+          
+        </figure>
+      </div>
+    </div>
+
+    <section class="card subway" id="route">
+      <div class="label">the route so far</div>
+      <h2>Line 1: Marwo</h2>
+      <ol class="stops">
+        <li>
+          <div class="when">sept 2018 — apr 2022</div>
+          <h3>McMaster University <span>· life sciences</span></h3>
+          <p>BSc Honours. where i learned to love data and hate pipettes.</p>
+        </li>
+        <li>
+          <div class="when">sept 2023 — now</div>
+          <h3>Toronto Metropolitan University <span>· computer science</span></h3>
+          <p>BSc. learning data structures, and that every problem is secretly a hash map.</p>
+        </li>
+        <li>
+          <div class="when">sept 2025 — aug 2026</div>
+          <h3>Scotiabank <span>· software engineer intern</span></h3>
+          <p>built internal apps and APIs, and was one of six engineers building agentic workflows and RAG pipelines with LangGraph for internal architecture teams. we worked extreme-programming style.</p>
+          <div class="chiplist"><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">Fastify</span><span class="chip">LangGraph</span></div>
+        </li>
+        <li class="next">
+          <div class="when">next stop</div>
+          <h3>your team? <span class="hand" style="font-size:22px">ding ding</span></h3>
+          <p>open to SWE internships and new-grad roles.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="card projects" id="projects">
+      <div class="label">side quests</div>
+      <h2>Projects</h2>
+      <div class="plist">
+        <article class="proj">
+          <svg viewBox="0 0 62 62" aria-hidden="true"><rect x="9" y="12" width="44" height="34" rx="10" fill="#f2a7b8"/><rect x="15" y="18" width="14" height="11" rx="3" fill="#fff"/><rect x="33" y="18" width="14" height="11" rx="3" fill="#fff"/><circle cx="20" cy="38" r="3" fill="#f5c518"/><circle cx="42" cy="38" r="3" fill="#f5c518"/><path d="M14 52l6-6M48 52l-6-6" stroke="#8a6a6f" stroke-width="3" stroke-linecap="round"/></svg>
+          <div><h3>TTCT · TTC Trends</h3><p>python analysis of TTC data to find when and where delays and crowding pile up. now you know who to blame.</p></div>
+        </article>
+        <article class="proj">
+          <svg viewBox="0 0 62 62" aria-hidden="true"><path d="M17 10h28c4 12 4 30 0 42H17c-4-12-4-30 0-42z" fill="#c98d5f"/><path d="M14 22h34M14 40h34" stroke="#4a2c31" stroke-width="3.5"/><circle cx="31" cy="31" r="3" fill="#4a2c31"/></svg>
+          <div><h3>A Look Back Into The Past</h3><p>a python game that walks you through making canadian whiskey, set in toronto's distillery district.</p></div>
+        </article>
+        <article class="proj">
+          <svg viewBox="0 0 62 62" aria-hidden="true"><path d="M8 28h46c0 14-10 24-23 24S8 42 8 28z" fill="#8fb36a"/><ellipse cx="31" cy="28" rx="23" ry="6" fill="#b9d698"/><path d="M40 6l-6 18" stroke="#c98d5f" stroke-width="3" stroke-linecap="round"/><path d="M36 4l12 6" stroke="#c98d5f" stroke-width="2"/></svg>
+          <div><h3>Matcha Madness</h3><p>python deep-dive into how global interest in matcha grew over time. yes, this is personal.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card skills">
+      <div class="label">toolbox</div>
+      <h2>Things i build with</h2>
+      <div class="marquee">
+        <div class="row" id="r1"></div>
+        <div class="row rev" id="r2"></div>
+      </div>
+    </section>
+
+    <section class="card fix">
+      <div class="label">fun facts</div>
+      <h2>Ask me about</h2>
+      <ul>
+        <li><b>01</b><span>why the TTC is late (i have the data)</span></li>
+        <li><b>02</b><span>the perfect matcha-to-milk ratio</span></li>
+        <li><b>03</b><span>going from life sci to CS</span></li>
+        <li><b>04</b><span>where i should travel next</span></li>
+      </ul>
+    </section>
+
+    <section class="card travel" id="travel">
+      <div style="position:relative">
+        <div class="tape" style="background:color-mix(in srgb,var(--pink) 50%,transparent)"></div>
+        <figure class="polaroid" style="margin:0"><div class="img"><img src="japan.jpg" alt="Marwo in a pink kimono in Japan"></div><p>kimono day in japan</p></figure>
+      </div>
+      <div>
+        <div class="label">off the clock</div>
+        <h2>Passport stamps</h2>
+        <p class="lead">when i'm not coding, i'm planning my next trip. six countries so far, and the list keeps growing.</p>
+        <div class="stamps"><span class="stamp round" style="--c:#d6336c;--r:-8deg">Japan<small>konnichiwa</small></span><span class="stamp" style="--c:#b7791f;--r:5deg">UAE<small>marhaba</small></span><span class="stamp" style="--c:#3b5bdb;--r:-3deg">United States<small>hey y'all</small></span><span class="stamp round" style="--c:#2b8a3e;--r:7deg">Dominican Republic<small>¡hola!</small></span><span class="stamp" style="--c:#7048e8;--r:-6deg">England<small>cheers</small></span><span class="stamp round" style="--c:#1c7ed6;--r:4deg">Somalia<small>home ♡</small></span></div>
+      </div>
+    </section>
+
+    <section class="card contact" id="contact">
+      <div>
+        <div class="label">say hi</div>
+        <h2>let's build something cute <span class="hand" style="font-size:.8em">(&amp; useful)</span></h2>
+      </div>
+      <div class="row2">
+        <span class="addr" id="email">marwosuleiman0903@gmail.com</span>
+        <button class="btn" id="copy" type="button">copy email</button>
+        <span class="toast" id="toast" aria-live="polite"></span>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  // Skills that scroll across the "Things i build with" card
+  const skillsRow1 = ["TypeScript", "Python", "React", "Node.js", "Next.js", "FastAPI", "Java", "C", "SQL", "PostgreSQL", "MongoDB", "TailwindCSS"];
+  const skillsRow2 = ["LangGraph", "LangChain", "RAG", "Agentic AI", "Docker", "Git", "GitHub", "Bitbucket", "Jira", "Confluence", "Bruno", "Power BI"];
+  const highlighted = new Set(["LangGraph", "RAG", "TypeScript", "Python", "FastAPI"]);
+
+  function fillRow(rowId, skills) {
+    const row = document.getElementById(rowId);
+    const chips = skills
+      .map((skill) => `<span class="${highlighted.has(skill) ? "hot" : ""}">${skill}</span>`)
+      .join("");
+    row.innerHTML = chips + chips; // doubled so the scroll loops smoothly
+  }
+
+  fillRow("r1", skillsRow1);
+  fillRow("r2", skillsRow2);
+
+  // Typing effect under the name
+  const roles = ["software engineer", "RAG pipeline builder", "TTC delay detective", "matcha researcher", "full-stack dev"];
+  const typed = document.getElementById("typed");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduceMotion) {
+    let roleIndex = 0;
+    let charCount = roles[0].length;
+    let deleting = true;
+
+    function tick() {
+      if (deleting) {
+        charCount--;
+        if (charCount === 0) {
+          deleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+      } else {
+        charCount++;
+        if (charCount === roles[roleIndex].length) {
+          deleting = true;
+          typed.textContent = roles[roleIndex];
+          setTimeout(tick, 1800); // pause on the full word
+          return;
+        }
+      }
+      typed.textContent = roles[roleIndex].slice(0, charCount) || "\u00a0";
+      setTimeout(tick, deleting ? 40 : 75);
+    }
+
+    setTimeout(tick, 1800);
+  }
+
+  // "copy email" button
+  const copyButton = document.getElementById("copy");
+  const emailText = document.getElementById("email");
+  const toast = document.getElementById("toast");
+
+  function selectEmail() {
+    const range = document.createRange();
+    range.selectNodeContents(emailText);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    toast.textContent = "selected, press ⌘C";
+  }
+
+  copyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(emailText.textContent);
+      toast.textContent = "copied ✿";
+      setTimeout(() => { toast.textContent = ""; }, 1800);
+    } catch (error) {
+      selectEmail();
+    }
+  });
+</script>
+</body>
+</html>
