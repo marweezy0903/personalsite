@@ -10,7 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=Caveat:wght@500;700&display=swap">
 <style>
-/* Layout: soft pink wave header over a bento grid; experience drawn as a subway line */
 :root{
   --bg:#fdd3e7; --wave:#fbbfdb; --card:#fff4f9; --ink:#5a2342; --muted:#94557a;
   --pink:#f06aa8; --matcha:#8fb36a; --matcha-ink:#4d6b2e; --line:#f5c518; --rule:#f7c3dc;
@@ -42,7 +41,6 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
 .label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .hand{font-family:var(--hand);font-size:24px;line-height:1.1;color:var(--pink)}
 
-/* hero */
 .hero{grid-column:span 4;display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:36px}
 .hero h1{font-family:var(--display);font-weight:800;font-size:clamp(46px,8vw,92px);line-height:.92;letter-spacing:-.03em;margin:0;text-wrap:balance}
 .hero h1 .u{background:linear-gradient(transparent 62%,var(--pink) 62%,var(--pink) 88%,transparent 88%)}
@@ -55,7 +53,6 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
 .btn:hover{transform:translateY(-2px) rotate(-1deg)}
 .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
 
-/* polaroid */
 .photo{grid-column:span 2;display:grid;place-items:center;background:transparent;box-shadow:none;padding:12px}
 .polaroid{background:#fff;padding:14px 14px 0;border-radius:6px;transform:rotate(3deg);box-shadow:0 18px 40px -20px rgba(80,30,45,.55);width:100%;max-width:290px;transition:transform .3s}
 .polaroid:hover{transform:rotate(-1deg) scale(1.02)}
@@ -64,7 +61,6 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
 .polaroid p{font-family:var(--hand);font-size:24px;color:#4a2c31;text-align:center;margin:8px 0 12px}
 .tape{position:absolute;top:2px;left:50%;width:96px;height:28px;background:color-mix(in srgb,var(--matcha) 55%,transparent);transform:translateX(-50%) rotate(-5deg);border-radius:2px;z-index:2}
 
-/* subway */
 .subway{grid-column:span 3}
 .subway h2,.projects h2,.skills h2,.contact h2,.fix h2{font-family:var(--display);font-weight:700;font-size:28px;margin:4px 0 18px;letter-spacing:-.01em}
 .stops{list-style:none;margin:0;padding:0;position:relative}
@@ -80,7 +76,6 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
 .chiplist{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .chip{font-size:12.5px;font-weight:500;padding:3px 10px;border-radius:999px;background:var(--wave)}
 
-/* projects */
 .projects{grid-column:span 3;display:flex;flex-direction:column}
 .plist{display:grid;gap:14px}
 .proj{display:grid;grid-template-columns:62px 1fr;gap:16px;align-items:center;padding:14px;border-radius:16px;border:1.5px dashed var(--rule);transition:border-color .2s,transform .2s}
@@ -89,7 +84,6 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
 .proj h3{font-family:var(--display);font-size:18px;margin:0}
 .proj p{margin:2px 0 0;font-size:14.5px;color:var(--muted)}
 
-/* skills */
 .skills{grid-column:span 4;overflow:hidden}
 .marquee{display:flex;flex-direction:column;gap:10px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .row{display:flex;gap:10px;width:max-content;animation:slide 38s linear infinite}
@@ -98,17 +92,12 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
 .row span.hot{background:var(--matcha);border-color:var(--matcha);color:#1f2a14}
 @keyframes slide{to{transform:translateX(-50%)}}
 
-/* fixations */
 .fix{grid-column:span 2;background:var(--wave)}
 .fix ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .fix li{display:flex;gap:10px;align-items:baseline}
 .fix li b{font-family:var(--hand);font-size:22px;color:var(--matcha-ink);min-width:28px}
 
-
-/* travel */
-.travel{grid-column:span 6;display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:36px;align-items:center;padding:34px}
-.travel .polaroid{transform:rotate(-3deg);max-width:260px}
-.travel .polaroid:hover{transform:rotate(1deg) scale(1.02)}
+.travel{grid-column:span 6;padding:34px}
 .travel h2{font-family:var(--display);font-weight:700;font-size:28px;margin:4px 0 6px}
 .travel .lead{margin:0 0 22px;color:var(--muted);max-width:52ch}
 .stamps{display:flex;flex-wrap:wrap;gap:16px 18px;align-items:center}
@@ -116,9 +105,8 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
 .stamp small{display:block;font-family:var(--hand);font-weight:700;text-transform:none;letter-spacing:0;font-size:17px}
 .stamp.round{border-radius:50%;width:96px;height:96px;display:grid;place-content:center;padding:6px}
 .stamp:hover{transform:rotate(0) scale(1.08)}
-@media (max-width:700px){.travel{grid-template-columns:1fr;padding:24px}.travel .polaroid{margin:0 auto}}
+@media (max-width:700px){.travel{padding:24px}}
 
-/* contact */
 .contact{grid-column:span 6;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:30px 36px}
 .contact h2{margin:0;font-size:clamp(26px,4vw,40px)}
 .contact .addr{font-family:var(--display);font-size:clamp(16px,2.4vw,20px);word-break:break-all}
@@ -166,7 +154,7 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
         <div class="tape"></div>
         <figure class="polaroid" style="margin:0;padding-bottom:44px">
           <div class="img" id="photoSlot">
-            <img src="me.jpg" alt="Marwo Suleiman">
+            <img src="me.jpg" alt="Illustration of Marwo waving">
           </div>
           
         </figure>
@@ -196,7 +184,7 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
         <li class="next">
           <div class="when">next stop</div>
           <h3>your team? <span class="hand" style="font-size:22px">ding ding</span></h3>
-          <p>open to SWE internships.</p>
+          <p>open to SWE internships and new-grad roles.</p>
         </li>
       </ol>
     </section>
@@ -241,13 +229,9 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
     </section>
 
     <section class="card travel" id="travel">
-      <div style="position:relative">
-        <div class="tape" style="background:color-mix(in srgb,var(--pink) 50%,transparent)"></div>
-        <figure class="polaroid" style="margin:0"><div class="img"><img src="japan.jpg" alt="Marwo in a pink kimono in Japan"></div><p>kimono day in japan</p></figure>
-      </div>
       <div>
         <div class="label">off the clock</div>
-        <h2>Passport stamps</h2>
+        <h2>passport stamps</h2>
         <p class="lead">when i'm not coding, i'm planning my next trip. six countries so far, and the list keeps growing.</p>
         <div class="stamps"><span class="stamp round" style="--c:#d6336c;--r:-8deg">Japan<small>konnichiwa</small></span><span class="stamp" style="--c:#b7791f;--r:5deg">UAE<small>marhaba</small></span><span class="stamp" style="--c:#3b5bdb;--r:-3deg">United States<small>hey y'all</small></span><span class="stamp round" style="--c:#2b8a3e;--r:7deg">Dominican Republic<small>¡hola!</small></span><span class="stamp" style="--c:#7048e8;--r:-6deg">England<small>cheers</small></span><span class="stamp round" style="--c:#1c7ed6;--r:4deg">Somalia<small>home ♡</small></span></div>
       </div>
@@ -268,7 +252,6 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
 </div>
 
 <script>
-  // Skills that scroll across the "Things i build with" card
   const skillsRow1 = ["TypeScript", "Python", "React", "Node.js", "Next.js", "FastAPI", "Java", "C", "SQL", "PostgreSQL", "MongoDB", "TailwindCSS"];
   const skillsRow2 = ["LangGraph", "LangChain", "RAG", "Agentic AI", "Docker", "Git", "GitHub", "Bitbucket", "Jira", "Confluence", "Bruno", "Power BI"];
   const highlighted = new Set(["LangGraph", "RAG", "TypeScript", "Python", "FastAPI"]);
@@ -278,13 +261,12 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
     const chips = skills
       .map((skill) => `<span class="${highlighted.has(skill) ? "hot" : ""}">${skill}</span>`)
       .join("");
-    row.innerHTML = chips + chips; // doubled so the scroll loops smoothly
+    row.innerHTML = chips + chips;
   }
 
   fillRow("r1", skillsRow1);
   fillRow("r2", skillsRow2);
 
-  // Typing effect under the name
   const roles = ["software engineer", "RAG pipeline builder", "TTC delay detective", "matcha researcher", "full-stack dev"];
   const typed = document.getElementById("typed");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -306,7 +288,7 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
         if (charCount === roles[roleIndex].length) {
           deleting = true;
           typed.textContent = roles[roleIndex];
-          setTimeout(tick, 1800); // pause on the full word
+          setTimeout(tick, 1800);
           return;
         }
       }
@@ -317,7 +299,6 @@ nav{display:flex;justify-content:flex-end;align-items:center;padding-block:22px;
     setTimeout(tick, 1800);
   }
 
-  // "copy email" button
   const copyButton = document.getElementById("copy");
   const emailText = document.getElementById("email");
   const toast = document.getElementById("toast");
